@@ -7,7 +7,6 @@ import { AuthModule } from './auth/auth.module';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { SeedsModule } from './seeds/seeds.module';
 
 @Module({
   imports: [
@@ -42,8 +41,6 @@ import { SeedsModule } from './seeds/seeds.module';
     }),
 
     AuthModule,
-
-    SeedsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
