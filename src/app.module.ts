@@ -3,20 +3,26 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import * as Joi from 'joi';
 
+import { AuthModule } from './auth/auth.module';
+
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { SeedsModule } from './seeds/seeds.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true, 
       validationSchema: Joi.object({
-        DB_TYPE: Joi.string().valid('postgres', 'mysql', 'sqlite').required(),
+        DB_TYPE: Joi.string()
+          .valid('postgres', 'mysql', 'sqlite')
+          .default('mysql'),
         DB_HOST: Joi.string().required(),
         DB_PORT: Joi.number().required(),
         DB_USERNAME: Joi.string().required(),
         DB_PASSWORD: Joi.string().required(),
         DB_NAME: Joi.string().required(),
+        JWT_SECRET: Joi.string().required()
       }),
     }),
 
@@ -34,6 +40,10 @@ import { AppService } from './app.service';
         synchronize: true,
       }),
     }),
+
+    AuthModule,
+
+    SeedsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
