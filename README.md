@@ -24,12 +24,39 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Esta API permite gestionar la autenticación de usuarios mediante JWT. Incluye funcionalidades para iniciar sesión, registrar usuarios, verificar tokens y consultar usuarios autenticados.
 
 ## Project setup
 
+ 1. Clonar el repositorio:
+
+```bash
+  git clone https://github.com/DevCamiloJ/nestjs-test.git
+```
+
+2. Ir al directorio del proyecto
+
+```bash
+  cd my-project
+```
+3. Instalar dependencias
+
 ```bash
 $ npm install
+```
+
+## Variables de entorno
+
+Para ejecutar este proyecto, deberá agregar las siguientes variables de entorno a su archivo .env
+
+```bash
+DB_TYPE=mysql
+DB_HOST=localhost
+DB_PORT=3306
+DB_USERNAME=root
+DB_PASSWORD=root
+DB_NAME=prueba-test
+JWT_SECRET=TX+JslYLDk34WK0oC9r9t1FRArwc/kggC2cVa4m37WM=
 ```
 
 ## Compile and run the project
